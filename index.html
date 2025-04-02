@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Asian Countries Animation (English & Chinese)</title>
+  <title>501 English Verbs with Example Sentences</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -17,7 +17,7 @@
       overflow: hidden;
     }
 
-    #country-container {
+    #verb-container {
       text-align: center;
       padding: 20px;
       border-radius: 10px;
@@ -25,6 +25,7 @@
       background-color: #ffffff;
       transform: scale(0.9);
       animation: fadeScale 1s ease-in-out infinite alternate;
+      max-width: 90%;
     }
 
     h1 {
@@ -37,6 +38,7 @@
       margin: 0;
       font-size: 1.5em;
       color: #444;
+      line-height: 1.4;
     }
 
     @keyframes fadeScale {
@@ -51,13 +53,13 @@
   </style>
 </head>
 <body>
-  <div id="country-container">
-    <h1 id="country-en">Loading...</h1>
-    <p id="country-cn">加载中...</p>
+  <div id="verb-container">
+    <h1 id="verb">Loading...</h1>
+    <p id="example">Loading example...</p>
   </div>
 
   <script>
-    const countries = [
+    const verbs = [
       {en: "Accept", cn: "I accept your apology for being late."},
       {en: "Achieve", cn: "She worked hard to achieve her goal of running a marathon."},
       {en: "Act", cn: "You need to act quickly if you want to catch that train."},
@@ -107,7 +109,7 @@
       {en: "Boil", cn: "You need to boil the pasta for about 10 minutes."},
       {en: "Borrow", cn: "Can I borrow your pen for a minute?"},
       {en: "Break", cn: "Be careful not to break the vase - it's very valuable."},
-      {en: "Breathe", cn: "Take a moment to breathe deeply when you feel stressed."}
+      {en: "Breathe", cn: "Take a moment to breathe deeply when you feel stressed."},
       {en: "Bring", cn: "Can you bring some snacks to the party?"},
       {en: "Build", cn: "They plan to build a new house next year."},
       {en: "Burn", cn: "Be careful not to burn yourself on the hot stove."},
@@ -471,22 +473,20 @@
     ];
 
     let index = 0;
-    const countryEn = document.getElementById('country-en');
-    const countryCn = document.getElementById('country-cn');
+    const verbElement = document.getElementById('verb');
+    const exampleElement = document.getElementById('example');
 
-    function updateCountry() {
-      countryEn.textContent = countries[index].en;
-      countryCn.textContent = countries[index].cn;
-      index = (index + 1) % countries.length;
+    function updateVerb() {
+      verbElement.textContent = verbs[index].en;
+      exampleElement.textContent = verbs[index].cn;
+      index = (index + 1) % verbs.length;
     }
 
     // Initial display
-    updateCountry();
+    updateVerb();
 
-    // Automatically update every 2 seconds
-    setInterval(updateCountry, 2000);
+    // Automatically update every 3 seconds
+    setInterval(updateVerb, 3000);
   </script>
 </body>
 </html>
-
-
