@@ -41,6 +41,18 @@
       line-height: 1.4;
     }
 
+    .number {
+      display: inline-block;
+      min-width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #0055cc;
+      color: white;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
     @keyframes fadeScale {
       from { opacity: 0.5; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
@@ -49,12 +61,17 @@
     @media (max-width: 600px) {
       h1 { font-size: 1.5em; }
       p { font-size: 1.2em; }
+      .number {
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+      }
     }
   </style>
 </head>
 <body>
   <div id="verb-container">
-    <h1 id="verb">Loading...</h1>
+    <h1><span id="number" class="number">1</span><span id="verb">Loading...</span></h1>
     <p id="example">Loading example...</p>
   </div>
 
@@ -473,10 +490,12 @@
     ];
 
     let index = 0;
+    const numberElement = document.getElementById('number');
     const verbElement = document.getElementById('verb');
     const exampleElement = document.getElementById('example');
 
     function updateVerb() {
+      numberElement.textContent = (index + 1);
       verbElement.textContent = verbs[index].en;
       exampleElement.textContent = verbs[index].cn;
       index = (index + 1) % verbs.length;
