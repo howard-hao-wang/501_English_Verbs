@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asian Countries Animation (English & Chinese)</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8faff;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #country-container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #ffffff;
+      transform: scale(0.9);
+      animation: fadeScale 1s ease-in-out infinite alternate;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2em;
+      color: #0055cc;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.5em;
+      color: #444;
+    }
+
+    @keyframes fadeScale {
+      from { opacity: 0.5; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p { font-size: 1.2em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="country-container">
+    <h1 id="country-en">Loading...</h1>
+    <p id="country-cn">加载中...</p>
+  </div>
+
+  <script>
+    const countries = [
+      {en: "Accept", cn: "I accept your apology for being late."},
+      {en: "Achieve", cn: "She worked hard to achieve her goal of running a marathon."},
+      {en: "Act", cn: "You need to act quickly if you want to catch that train."},
+      {en: "Add", cn: "Can you add some salt to the soup, please?"},
+      {en: "Admire", cn: "I admire your dedication to your studies."},
+      {en: "Admit", cn: "He finally had to admit that he was wrong."},
+      {en: "Adopt", cn: "They decided to adopt a puppy from the shelter."},
+      {en: "Advise", cn: "My doctor advised me to exercise more often."},
+      {en: "Afford", cn: "I can't afford to buy a new car right now."},
+      {en: "Agree", cn: "We all agree that this is the best solution."},
+      {en: "Aim", cn: "She aims to finish her degree by next year."},
+      {en: "Allow", cn: "My parents don't allow pets in the house."},
+      {en: "Announce", cn: "The company announced a new product yesterday."},
+      {en: "Answer", cn: "Could you answer the phone while I'm cooking?"},
+      {en: "Apologize", cn: "I apologize for forgetting your birthday."},
+      {en: "Appear", cn: "He suddenly appeared at the doorway."},
+      {en: "Apply", cn: "I'm going to apply for that job opening."},
+      {en: "Approve", cn: "The bank approved our loan application."},
+      {en: "Argue", cn: "The siblings always argue about what movie to watch."},
+      {en: "Arrange", cn: "Let's arrange to meet at the cafe at noon."},
+      {en: "Arrive", cn: "The train is scheduled to arrive at 3 PM."},
+      {en: "Ask", cn: "Don't be afraid to ask questions if you're confused."},
+      {en: "Attach", cn: "Please attach your resume to the email."},
+      {en: "Attack", cn: "The immune system attacks foreign bacteria."},
+      {en: "Attempt", cn: "He attempted to climb the mountain but had to turn back."},
+      {en: "Attend", cn: "Will you attend the wedding next weekend?"},
+      {en: "Attract", cn: "Bright flowers attract bees and butterflies."},
+      {en: "Avoid", cn: "I try to avoid eating too much sugar."},
+      {en: "Back", cn: "My friends will back me up if I need help."},
+      {en: "Bake", cn: "My grandmother loves to bake cookies for us."},
+      {en: "Balance", cn: "It's important to balance work and personal life."},
+      {en: "Ban", cn: "The school decided to ban cell phones during class."},
+      {en: "Base", cn: "She based her decision on the available facts."},
+      {en: "Be", cn: "I want to be a doctor when I grow up."},
+      {en: "Beat", cn: "Our team beat the champions in the final match."},
+      {en: "Become", cn: "He became more confident after taking the class."},
+      {en: "Begin", cn: "The movie will begin at 7:30 PM."},
+      {en: "Behave", cn: "The children behaved very well during the ceremony."},
+      {en: "Believe", cn: "Do you believe in ghosts?"},
+      {en: "Belong", cn: "These books belong on the top shelf."},
+      {en: "Bend", cn: "You need to bend your knees when lifting heavy objects."},
+      {en: "Bet", cn: "I bet she'll be late again today."},
+      {en: "Bind", cn: "The contract will bind both parties to the agreement."},
+      {en: "Bite", cn: "Be careful - that dog might bite if it feels threatened."},
+      {en: "Bleed", cn: "His knee started to bleed after he fell off his bike."},
+      {en: "Blow", cn: "The wind is starting to blow harder now."},
+      {en: "Boil", cn: "You need to boil the pasta for about 10 minutes."},
+      {en: "Borrow", cn: "Can I borrow your pen for a minute?"},
+      {en: "Break", cn: "Be careful not to break the vase - it's very valuable."},
+      {en: "Breathe", cn: "Take a moment to breathe deeply when you feel stressed."}
+    ];
+
+    let index = 0;
+    const countryEn = document.getElementById('country-en');
+    const countryCn = document.getElementById('country-cn');
+
+    function updateCountry() {
+      countryEn.textContent = countries[index].en;
+      countryCn.textContent = countries[index].cn;
+      index = (index + 1) % countries.length;
+    }
+
+    // Initial display
+    updateCountry();
+
+    // Automatically update every 2 seconds
+    setInterval(updateCountry, 2000);
+  </script>
+</body>
+</html>
+
+
